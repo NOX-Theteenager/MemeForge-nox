@@ -1,0 +1,200 @@
+/* ============================================
+   MèmeForge — Design System
+   Comic-inspired, professional, playful
+   ============================================ */
+
+/* --- CSS Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Comic Color Palette */
+  --primary: #6C3CE1;
+  --primary-light: #8B5CF6;
+  --primary-dark: #5224B5;
+  --primary-glow: rgba(108, 60, 225, 0.35);
+
+  --accent-pink: #FF3CAC;
+  --accent-orange: #FF6B35;
+  --accent-yellow: #FFD166;
+  --accent-cyan: #06D6A0;
+  --accent-blue: #118AB2;
+
+  --bg-deep: #0A0A1A;
+  --bg-card: #12122A;
+  --bg-card-hover: #1A1A3E;
+  --bg-surface: #161636;
+  --bg-input: #1E1E44;
+
+  --text-primary: #F0EEFF;
+  --text-secondary: #9D96B8;
+  --text-muted: #6B6490;
+  --text-accent: #C4B5FD;
+
+  --border-subtle: rgba(108, 60, 225, 0.2);
+  --border-medium: rgba(108, 60, 225, 0.35);
+  --border-strong: rgba(108, 60, 225, 0.6);
+
+  --gradient-hero: linear-gradient(135deg, #6C3CE1 0%, #FF3CAC 50%, #FF6B35 100%);
+  --gradient-card: linear-gradient(145deg, rgba(108, 60, 225, 0.08), rgba(255, 60, 172, 0.05));
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px var(--primary-glow);
+  --shadow-comic: 4px 4px 0px rgba(108, 60, 225, 0.5);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --font-display: 'Bangers', cursive;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --font-handwritten: 'Caveat', cursive;
+
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --- Global Styles --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animated background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(108, 60, 225, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255, 60, 172, 0.08), transparent),
+    radial-gradient(ellipse 40% 30% at 20% 70%, rgba(6, 214, 160, 0.06), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Dot grid overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(108, 60, 225, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: 1.5px;
+  color: var(--text-primary);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* --- Selection --- */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(108, 60, 225, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(108, 60, 225, 0.6); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px) rotate(-1deg); }
+  75% { transform: translateX(3px) rotate(1deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes comic-pop {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.08); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes typing-dots {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-4px); }
+}
+
+@keyframes scan-line {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+@keyframes border-dance {
+  0% { border-image-source: linear-gradient(0deg, var(--primary), var(--accent-pink), var(--accent-cyan)); }
+  33% { border-image-source: linear-gradient(120deg, var(--accent-pink), var(--accent-cyan), var(--primary)); }
+  66% { border-image-source: linear-gradient(240deg, var(--accent-cyan), var(--primary), var(--accent-pink)); }
+  100% { border-image-source: linear-gradient(360deg, var(--primary), var(--accent-pink), var(--accent-cyan)); }
+}
+
+@keyframes slide-up-fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
