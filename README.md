@@ -99,4 +99,4 @@ Ce service écoute sur `127.0.0.1:8000`, assurant ainsi que l'API reste confiné
 * **Institution :** SUPINFO (Mini-projet d'admission)
 * **Date de Déploiement :** Mai 2026
 * **Lien vers l'appllication :** http://noxmeme.duckdns.org/
-* **Lien vers le dépot Github :** https://github.com/NOX-Theteenager/noxmemesupinfo
+* **Lien vers le dépot Github :** https://github.com/NOX-Theteenager/MemeForge-nox
